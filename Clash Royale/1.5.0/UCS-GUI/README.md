@@ -1,0 +1,1 @@
+Servidor de clash of clans adaptado para clash royale 1.5

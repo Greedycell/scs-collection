@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CharmEdmxToolsConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="4">
+  <SccPocoFixer enabled="true" plugin="tfs" />
+  <NamingNavigationProperty enabled="false">
+    <ModelOne Pattern="PrincipalRole" />
+    <ModelMany Pattern="PrincipalRole_DependentPropertyRef" />
+    <ModelOneParent Pattern="PrincipalRole_PARENT" />
+    <ListOne Pattern="ListDependentRole" />
+    <ListMany Pattern="ListDependentRole_DependentPropertyRef" />
+    <ListOneChilds Pattern="DependentRole_CHILDREN" />
+  </NamingNavigationProperty>
+  <EdmMappingConfigurations>
+    <edmMappingConfiguration ProviderName="Oracle.ManagedDataAccess.Client">
+      <edmMappings>
+        <edmMapping DbType="guid raw">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Guid" />
+            <add AttributeName="MaxLength;FixedLength;Unicode;" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="date">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="DateTime" />
+            <add AttributeName="MaxLength;FixedLength;Unicode;" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="char;varchar2">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="String" />
+            <add AttributeName="MaxLength" ValueStorageAttributeName="MaxLength" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="nclob;clob">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="String" />
+            <add AttributeName="MaxLength" Value="Max" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="blob">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Binary" />
+            <add AttributeName="MaxLength" Value="Max" />
+            <add AttributeName="FixedLength" Value="false" />
+            <add AttributeName="Unicode" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="number" MinPrecision="1" MaxPrecision="1" MaxScale="0">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Boolean" />
+            <add AttributeName="Precision;Scale;MaxLength;FixedLength;Unicode;" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="number" MinPrecision="2" MaxPrecision="3" MaxScale="0">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Byte" />
+            <add AttributeName="Precision;Scale;MaxLength;FixedLength;Unicode;" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="number" MinPrecision="4" MaxPrecision="5" MaxScale="0">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Int16" />
+            <add AttributeName="Precision;Scale;MaxLength;FixedLength;Unicode;" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="number" MinPrecision="6" MaxPrecision="10" MaxScale="0">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Int32" />
+            <add AttributeName="Precision;Scale;MaxLength;FixedLength;Unicode;" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="number" MinPrecision="11" MaxPrecision="19" MaxScale="0">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Int64" />
+            <add AttributeName="Precision;Scale;MaxLength;FixedLength;Unicode;" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="number">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Decimal" />
+            <add AttributeName="MaxLength;FixedLength;Unicode;" Value="" />
+            <add AttributeName="Precision;Scale;" ValueFromStorageAttribute="True" />
+          </ConceptualTrasformations>
+        </edmMapping>
+      </edmMappings>
+    </edmMappingConfiguration>
+    <edmMappingConfiguration ProviderName="System.Data.EntityClient">
+      <edmMappings>
+        <edmMapping DbType="guid raw">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Guid" />
+            <add AttributeName="MaxLength;FixedLength;Unicode;" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="date">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="DateTime" />
+            <add AttributeName="MaxLength;FixedLength;Unicode;" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="char;nchar;varchar;nvarchar">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="String" />
+            <add AttributeName="MaxLength" ValueStorageAttributeName="MaxLength" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="text;ntext">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="String" />
+            <add AttributeName="MaxLength" Value="Max" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="varbinary">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Binary" />
+            <add AttributeName="MaxLength" Value="Max" />
+            <add AttributeName="FixedLength" Value="false" />
+            <add AttributeName="Unicode" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="bit">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Boolean" />
+            <add AttributeName="Precision;Scale;MaxLength;FixedLength;Unicode;" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="tinyint">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Byte" />
+            <add AttributeName="Precision;Scale;MaxLength;FixedLength;Unicode;" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="smallint">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Int16" />
+            <add AttributeName="Precision;Scale;MaxLength;FixedLength;Unicode;" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="int">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Int32" />
+            <add AttributeName="Precision;Scale;MaxLength;FixedLength;Unicode;" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="bigint">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Int64" />
+            <add AttributeName="Precision;Scale;MaxLength;FixedLength;Unicode;" Value="" />
+          </ConceptualTrasformations>
+        </edmMapping>
+        <edmMapping DbType="decimal;numeric;money">
+          <ConceptualTrasformations>
+            <add AttributeName="Type" Value="Decimal" />
+            <add AttributeName="MaxLength;FixedLength;Unicode;" Value="" />
+            <add AttributeName="Precision;Scale;" ValueFromStorageAttribute="True" />
+          </ConceptualTrasformations>
+        </edmMapping>
+      </edmMappings>
+    </edmMappingConfiguration>
+  </EdmMappingConfigurations>
+</CharmEdmxToolsConfiguration>

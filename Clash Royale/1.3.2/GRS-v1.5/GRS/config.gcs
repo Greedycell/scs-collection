@@ -1,0 +1,4 @@
+﻿<appSettings>
+  <add key="database" value="ucsdbEntities" />
+  <add key="patchServer" value="" />
+</appSettings>

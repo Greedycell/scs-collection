@@ -14,8 +14,8 @@ class LoginOkMessage extends PiranhaMessage {
     this.writeString('nypbej3nc7cbcz3bk2mcxtx2x6bazd6xnt7ec7xs') // PassToken
     this.writeString(null) // GamecenterId
     this.writeString(null) // FacebookId
-    this.writeInt(2) // ServerMajorVersion
-    this.writeInt(111) // ServerBuild
+    this.writeInt(3) // ServerMajorVersion
+    this.writeInt(25) // ServerBuild
     this.writeInt(0) // ContentVersion
     this.writeString('stage') // ServerEnvironment
     this.writeInt(1) // PlayTimeSeconds

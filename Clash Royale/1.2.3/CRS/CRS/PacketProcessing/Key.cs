@@ -1,0 +1,36 @@
+﻿using System;
+
+namespace UCS.PacketProcessing
+{
+	// Token: 0x02000060 RID: 96
+	public static class Key
+	{
+		// Token: 0x170000A9 RID: 169
+		// (get) Token: 0x06000303 RID: 771 RVA: 0x0001099B File Offset: 0x0000EB9B
+		public static ClashKeyPair Crypto
+		{
+			get
+			{
+				return new ClashKeyPair((byte[])Key._standardPublicKey.Clone(), (byte[])Key._standardPrivateKey.Clone());
+			}
+		}
+
+		// Token: 0x04000215 RID: 533
+		private static readonly byte[] _standardPrivateKey = new byte[]
+		{
+			24, 145, 212, 1, 250, 219, 81, 210, 93, 58,
+			145, 116, 212, 114, 169, 246, 145, 164, 91, 151,
+			66, 133, 212, 119, 41, 196, 92, 101, 56, 7,
+			13, 133
+		};
+
+		// Token: 0x04000216 RID: 534
+		private static readonly byte[] _standardPublicKey = new byte[]
+		{
+			114, 241, 164, 164, 196, 142, 68, 218, 12, 66,
+			49, 15, 128, 14, 150, 98, 78, 109, 198, 166,
+			65, 169, 212, 28, 59, 80, 57, 216, 223, 173,
+			194, 126
+		};
+	}
+}

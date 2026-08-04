@@ -1,0 +1,626 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A14678FC-FCF4-4A63-AC9D-82B4C42D05D3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CRS</RootNamespace>
+    <AssemblyName>CRS</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>CRS.ico</ApplicationIcon>
+    <StartupObject>UCS.Program</StartupObject>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.6.2\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.32.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.32.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.8\lib\netstandard2.0\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.3.8\lib\netstandard2.0\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\netstandard2.0\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Loader, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Loader.4.3.0\lib\netstandard1.5\System.Runtime.Loader.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.ProtectedData.8.0.0\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.8.0.0\lib\netstandard2.0\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.4.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.7.0.1\lib\netstandard2.0\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="ZstdSharp, Version=0.8.6.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.8.6\lib\netstandard2.0\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClashRoyaleProxy\PacketTypes.cs" />
+    <Content Include="banned-ip.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="Database\ucsdb.Context.cs" />
+    <Compile Include="Database\ucsdb.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ucsdb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\ucsdb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ucsdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\ucsdb.Designer.cs" />
+    <Compile Include="Database\ucsdb1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ucsdb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Ionic\Crc\CRC32.cs" />
+    <Compile Include="Ionic\Crc\CrcCalculatorStream.cs" />
+    <Compile Include="Ionic\Encoding\Iso8859Dash1Encoding.cs" />
+    <Compile Include="Ionic\Zlib\Adler.cs" />
+    <Compile Include="Ionic\Zlib\BlockState.cs" />
+    <Compile Include="Ionic\Zlib\CompressionLevel.cs" />
+    <Compile Include="Ionic\Zlib\CompressionMode.cs" />
+    <Compile Include="Ionic\Zlib\CompressionStrategy.cs" />
+    <Compile Include="Ionic\Zlib\DeflateFlavor.cs" />
+    <Compile Include="Ionic\Zlib\DeflateManager.cs" />
+    <Compile Include="Ionic\Zlib\DeflateStream.cs" />
+    <Compile Include="Ionic\Zlib\FlushType.cs" />
+    <Compile Include="Ionic\Zlib\GZipStream.cs" />
+    <Compile Include="Ionic\Zlib\InflateBlocks.cs" />
+    <Compile Include="Ionic\Zlib\InflateCodes.cs" />
+    <Compile Include="Ionic\Zlib\InflateManager.cs" />
+    <Compile Include="Ionic\Zlib\InfTree.cs" />
+    <Compile Include="Ionic\Zlib\InternalConstants.cs" />
+    <Compile Include="Ionic\Zlib\InternalInflateConstants.cs" />
+    <Compile Include="Ionic\Zlib\ParallelDeflateOutputStream.cs" />
+    <Compile Include="Ionic\Zlib\SharedUtils.cs" />
+    <Compile Include="Ionic\Zlib\StaticTree.cs" />
+    <Compile Include="Ionic\Zlib\Tree.cs" />
+    <Compile Include="Ionic\Zlib\WorkItem.cs" />
+    <Compile Include="Ionic\Zlib\ZlibBaseStream.cs" />
+    <Compile Include="Ionic\Zlib\ZlibCodec.cs" />
+    <Compile Include="Ionic\Zlib\ZlibConstants.cs" />
+    <Compile Include="Ionic\Zlib\ZlibException.cs" />
+    <Compile Include="Ionic\Zlib\ZlibStream.cs" />
+    <Compile Include="Ionic\Zlib\ZlibStreamFlavor.cs" />
+    <Compile Include="PacketProcessing\VisitedHomeDataMessage.cs" />
+    <Compile Include="PacketProcessing\VisitHomeMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\DatabaseManager.cs" />
+    <Compile Include="Core\Debugger.cs" />
+    <Compile Include="Core\HTTP.cs" />
+    <Compile Include="Core\JsonApi.cs" />
+    <Compile Include="Core\Logger.cs" />
+    <Compile Include="Core\MessageManager.cs" />
+    <Compile Include="Core\ObjectManager.cs" />
+    <Compile Include="Core\PerformanceInfo.cs" />
+    <Compile Include="Core\Performances.cs" />
+    <Compile Include="Core\ResourcesManager.cs" />
+    <Compile Include="Core\Threading\ConsoleThread.cs" />
+    <Compile Include="Core\Threading\InterfaceThread.cs" />
+    <Compile Include="Core\Threading\MemoryThread.cs" />
+    <Compile Include="Core\Threading\NetworkThread.cs" />
+    <Compile Include="Core\Threading\PerformanceInfo.cs" />
+    <Compile Include="Core\UCSList.cs" />
+    <Compile Include="Database\clan.cs">
+      <DependentUpon>ucsdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\player.cs">
+      <DependentUpon>ucsdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\ucsdbEntities.cs" />
+    <Compile Include="Files\CSVColumn.cs" />
+    <Compile Include="Files\CSVRow.cs" />
+    <Compile Include="Files\CSVTable.cs" />
+    <Compile Include="Files\Data.cs" />
+    <Compile Include="Files\DataTable.cs" />
+    <Compile Include="Files\DataTables.cs" />
+    <Compile Include="Files\FingerPrint.cs" />
+    <Compile Include="Files\GameFile.cs" />
+    <Compile Include="Helpers\CoCSharpPacketReader.cs" />
+    <Compile Include="Helpers\CommandParser.cs" />
+    <Compile Include="Helpers\GamePlayUtil.cs" />
+    <Compile Include="Helpers\Helpers.cs" />
+    <Compile Include="Logic\Achievement.cs" />
+    <Compile Include="Logic\Alliance.cs" />
+    <Compile Include="Logic\AllianceEventStreamEntry.cs" />
+    <Compile Include="Logic\AllianceKickOutStreamEntry.cs" />
+    <Compile Include="Logic\AllianceMailStreamEntry.cs" />
+    <Compile Include="Logic\AllianceMemberEntry.cs" />
+    <Compile Include="Logic\Avatar.cs" />
+    <Compile Include="Logic\AvatarStreamEntry.cs" />
+    <Compile Include="Logic\Base.cs" />
+    <Compile Include="Logic\BunkerComponent.cs" />
+    <Compile Include="Logic\Card.cs" />
+    <Compile Include="Logic\ChatStreamEntry.cs" />
+    <Compile Include="Logic\ClientAvatar.cs" />
+    <Compile Include="Logic\ClientHome.cs" />
+    <Compile Include="Logic\Component.cs" />
+    <Compile Include="Logic\ComponentFilter.cs" />
+    <Compile Include="Logic\ComponentManager.cs" />
+    <Compile Include="Logic\DataSlot.cs" />
+    <Compile Include="Logic\GameObject.cs" />
+    <Compile Include="Logic\GameObjectFilter.cs" />
+    <Compile Include="Logic\GameObjectManager.cs" />
+    <Compile Include="Logic\GlobalID.cs" />
+    <Compile Include="Logic\HitpointComponent.cs" />
+    <Compile Include="Logic\InvitationStreamEntry.cs" />
+    <Compile Include="Logic\Level.cs" />
+    <Compile Include="Logic\MovementComponent.cs" />
+    <Compile Include="Logic\NpcLevel.cs" />
+    <Compile Include="Logic\ResourceStorageComponent.cs" />
+    <Compile Include="Logic\ShareStreamEntry.cs" />
+    <Compile Include="Logic\StreamEntry.cs" />
+    <Compile Include="Logic\Timer.cs" />
+    <Compile Include="Logic\TriggerComponent.cs" />
+    <Compile Include="Logic\TroopRequestStreamEntry.cs" />
+    <Compile Include="Logic\UnitSlot.cs" />
+    <Compile Include="Network\Gateway.cs" />
+    <Compile Include="Network\PacketManager.cs" />
+    <Compile Include="Network\SocketRead.cs" />
+    <Compile Include="PacketProcessing\AllianceDataMessage.cs" />
+    <Compile Include="PacketProcessing\AskForAllianceDataMessage.cs" />
+    <Compile Include="PacketProcessing\AskForAvatarStreamEntryMessage.cs" />
+    <Compile Include="PacketProcessing\AskForBattleReplayMessage.cs" />
+    <Compile Include="PacketProcessing\AskForBattleReplayStreamMessage.cs" />
+    <Compile Include="PacketProcessing\AskForCancelAttackMessage.cs" />
+    <Compile Include="PacketProcessing\AskForNewsDataMessage.cs" />
+    <Compile Include="PacketProcessing\AskForPlayingFacebookFriendsMessage.cs" />
+    <Compile Include="PacketProcessing\AskForTvContentMessage.cs" />
+    <Compile Include="PacketProcessing\AvailableServerCommandsMessage.cs" />
+    <Compile Include="PacketProcessing\AvatarNameChangeOkMessage.cs" />
+    <Compile Include="PacketProcessing\BattleReplayMessage.cs" />
+    <Compile Include="PacketProcessing\BattleReportStreamMessage.cs" />
+    <Compile Include="PacketProcessing\BuyCardCommand.cs" />
+    <Compile Include="PacketProcessing\BuyChestCommand.cs" />
+    <Compile Include="PacketProcessing\CancelAttackMessage.cs" />
+    <Compile Include="PacketProcessing\ChangeAvatarNameMessage.cs" />
+    <Compile Include="PacketProcessing\ChestDataMessage.cs" />
+    <Compile Include="PacketProcessing\ChestNextCardCommand.cs" />
+    <Compile Include="PacketProcessing\ClaimAchievementCommand.cs" />
+    <Compile Include="PacketProcessing\ClashKeyPair.cs" />
+    <Compile Include="PacketProcessing\Client.cs" />
+    <Compile Include="PacketProcessing\ClientCapabilitiesMessage.cs" />
+    <Compile Include="PacketProcessing\Command.cs" />
+    <Compile Include="PacketProcessing\CommandFactory.cs" />
+    <Compile Include="PacketProcessing\Commands\TvReplaySeenCommand.cs" />
+    <Compile Include="PacketProcessing\ExecuteCommandsMessage.cs" />
+    <Compile Include="PacketProcessing\FriendListMessage.cs" />
+    <Compile Include="PacketProcessing\GameOpCommand.cs" />
+    <Compile Include="PacketProcessing\GameOpCommandFactory.cs" />
+    <Compile Include="PacketProcessing\GetDeviceTokenMessage.cs" />
+    <Compile Include="PacketProcessing\GoHomeMessage.cs" />
+    <Compile Include="PacketProcessing\HomeBattleReplayMessage.cs" />
+    <Compile Include="PacketProcessing\HomeLogicStoppedMessage.cs" />
+    <Compile Include="PacketProcessing\KeepAliveMessage.cs" />
+    <Compile Include="PacketProcessing\KeepAliveOkMessage.cs" />
+    <Compile Include="PacketProcessing\Key.cs" />
+    <Compile Include="PacketProcessing\LevelUpCommand.cs" />
+    <Compile Include="PacketProcessing\LoginFailedMessage.cs" />
+    <Compile Include="PacketProcessing\LoginMessage.cs" />
+    <Compile Include="PacketProcessing\LoginOkMessage.cs" />
+    <Compile Include="PacketProcessing\MatchmakeInfoMessage.cs" />
+    <Compile Include="PacketProcessing\Message.cs" />
+    <Compile Include="PacketProcessing\MessageFactory.cs" />
+    <Compile Include="PacketProcessing\MessageReader.cs" />
+    <Compile Include="PacketProcessing\MessageWriter.cs" />
+    <Compile Include="PacketProcessing\NewsDataMessage.cs" />
+    <Compile Include="PacketProcessing\NextCardCommand.cs" />
+    <Compile Include="PacketProcessing\OpenChestCommand.cs" />
+    <Compile Include="PacketProcessing\OwnHomeDataMessage.cs" />
+    <Compile Include="PacketProcessing\RoyalTvContentMessage.cs" />
+    <Compile Include="PacketProcessing\SearchOppenentCommand.cs" />
+    <Compile Include="PacketProcessing\SectorStateMessage.cs" />
+    <Compile Include="PacketProcessing\SectorStateNpcMessage.cs" />
+    <Compile Include="PacketProcessing\SessionRequest.cs" />
+    <Compile Include="PacketProcessing\SessionSuccess.cs" />
+    <Compile Include="PacketProcessing\SetDeviceTokenMessage.cs" />
+    <Compile Include="PacketProcessing\StartMissionMessage.cs" />
+    <Compile Include="PacketProcessing\StopHomeLogicMessage.cs" />
+    <Compile Include="PacketProcessing\UdpConnectionInfoMessage.cs" />
+    <Compile Include="PacketProcessing\UnknownCommand.cs" />
+    <Compile Include="PacketProcessing\UnlockChestCommand.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Utilities\ClashRoyale\Compression.cs" />
+    <Compile Include="Utilities\Sodium\CryptoHash.cs" />
+    <Compile Include="Utilities\Sodium\DetachedBox.cs" />
+    <Compile Include="Utilities\Sodium\DynamicInvoke.cs" />
+    <Compile Include="Utilities\Sodium\Exceptions\AdditionalDataOutOfRangeException.cs" />
+    <Compile Include="Utilities\Sodium\Exceptions\BytesOutOfRangeException.cs" />
+    <Compile Include="Utilities\Sodium\Exceptions\KeyOutOfRangeException.cs" />
+    <Compile Include="Utilities\Sodium\Exceptions\MacOutOfRangeException.cs" />
+    <Compile Include="Utilities\Sodium\Exceptions\NonceOutOfRangeException.cs" />
+    <Compile Include="Utilities\Sodium\Exceptions\PersonalOutOfRangeException.cs" />
+    <Compile Include="Utilities\Sodium\Exceptions\SaltOutOfRangeException.cs" />
+    <Compile Include="Utilities\Sodium\Exceptions\SeedOutOfRangeException.cs" />
+    <Compile Include="Utilities\Sodium\Exceptions\SignatureOutOfRangeException.cs" />
+    <Compile Include="Utilities\Sodium\GenericHash.cs" />
+    <Compile Include="Utilities\Sodium\KeyPair.cs" />
+    <Compile Include="Utilities\Sodium\LazyInvoke.cs" />
+    <Compile Include="Utilities\Sodium\OneTimeAuth.cs" />
+    <Compile Include="Utilities\Sodium\PasswordHash.cs" />
+    <Compile Include="Utilities\Sodium\PublicKeyAuth.cs" />
+    <Compile Include="Utilities\Sodium\PublicKeyBox.cs" />
+    <Compile Include="Utilities\Sodium\ScalarMult.cs" />
+    <Compile Include="Utilities\Sodium\SealedPublicKeyBox.cs" />
+    <Compile Include="Utilities\Sodium\SecretAead.cs" />
+    <Compile Include="Utilities\Sodium\SecretAeadAes.cs" />
+    <Compile Include="Utilities\Sodium\SecretBox.cs" />
+    <Compile Include="Utilities\Sodium\SecretKeyAuth.cs" />
+    <Compile Include="Utilities\Sodium\ShortHash.cs" />
+    <Compile Include="Utilities\Sodium\SodiumCore.cs" />
+    <Compile Include="Utilities\Sodium\SodiumLibrary.cs" />
+    <Compile Include="Utilities\Sodium\StreamEncryption.cs" />
+    <Compile Include="Utilities\Sodium\Utilities.cs" />
+    <Content Include="Database\ucsdb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ucsdb.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\ucsdb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ucsdb.cs</LastGenOutput>
+    </Content>
+    <Content Include="libsodium-64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libsodium.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\database.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\ucsbuildsha.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\ucsgflzma.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\libsodium.dll">
+      <Link>libsodium.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\libsodium-64.dll">
+      <Link>libsodium-64.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="app.manifest" />
+    <EntityDeploy Include="Database\ucsdb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ucsdb1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database\ucsdb.edmx.diagram">
+      <DependentUpon>ucsdb.edmx</DependentUpon>
+    </None>
+    <None Include="Gamefiles\csv_client\background_decos.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\billing_packages.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\client_globals.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\credits.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\effects.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\health_bars.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\helpshift.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\hints.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\music.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\news.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\particle_emitters.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\sorted_regions\CNT_regions.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\sorted_regions\CN_regions.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\sorted_regions\JP_regions.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\sorted_regions\KR_regions.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\sounds.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\texts.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_client\texts_patch.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\achievements.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\alliance_badges.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\alliance_roles.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\area_effect_objects.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\arenas.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\buildings.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\characters.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\character_buffs.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\chest_order.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\damage_types.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\decos.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\eggs.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\exp_levels.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\gamble_chests.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\globals.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\locales.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\locations.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\npcs.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\predefined_decks.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\projectiles.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\rarities.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\regions.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\resources.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\resource_packs.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\spawn_points.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\spells_buildings.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\spells_characters.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\spells_other.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\spell_sets.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\taunts.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\treasure_chests.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\tutorials_home.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\csv_logic\tutorials_npc.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\fingerprint.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\locations\barbarian_arena.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\locations\bone_arena.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\locations\builder_arena.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\locations\dark_arena.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\locations\goblin_arena.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\locations\legendary_arena.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\locations\royal_arena.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\locations\spell_arena.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\locations\training_arena.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Gamefiles\starting_home.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Tools\patch_generator.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\restarter.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CRS.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Library\x64\" />
+    <Folder Include="Library\x86\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="6.9.9" />
+    <PackageReference Include="MySql.Data.Entity" Version="6.9.9" />
+    <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
