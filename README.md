@@ -1,2 +1,2 @@
-# sc-ohd-servers
-A list of OwnHomeData servers for Supercell games
+# scs-collection
+A collection of server versions for Supercell games
