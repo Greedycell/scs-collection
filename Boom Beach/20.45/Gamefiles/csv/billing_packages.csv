@@ -1,0 +1,8 @@
+Name,TID,Disabled,Diamonds,USD,IconSWF,IconExportName,ShopItemExportName,RMB,KunlunOnly,LenovoID
+String,String,boolean,int,int,String,String,String,int,boolean,int
+com.supercell.reef.packs1,TID_DIAMOND_PACK_1,,500,499,sc/diamond-packs.sc,icon_gem_small,shop_item_diamond_pack,3000,,2
+com.supercell.reef.packs2,TID_DIAMOND_PACK_2,,1200,999,sc/diamond-packs.sc,icon_gem_normal,shop_item_diamond_pack,6800,,3
+com.supercell.reef.packs3,TID_DIAMOND_PACK_3,,2500,1999,sc/diamond-packs.sc,icon_gem_medium,shop_item_diamond_pack,12800,,4
+com.supercell.reef.packs4,TID_DIAMOND_PACK_4,,6500,4999,sc/diamond-packs.sc,icon_gem_large,shop_item_diamond_pack,32800,,5
+com.supercell.reef.packs5,TID_DIAMOND_PACK_5,,14000,9999,sc/diamond-packs.sc,icon_gem_huge,shop_item_diamond_pack,64800,,6
+com.supercell.reef.packs6,TID_DIAMOND_PACK_6,,90,100,sc/diamond-packs.sc,icon_gem_kunlun,shop_item_diamond_pack,600,true,1

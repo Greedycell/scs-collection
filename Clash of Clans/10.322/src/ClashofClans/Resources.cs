@@ -1,0 +1,76 @@
+﻿using System;
+using System.Threading.Tasks;
+using ClashofClans.Core;
+using ClashofClans.Core.Leaderboard;
+using ClashofClans.Core.Network;
+using ClashofClans.Database;
+using ClashofClans.Database.Cache;
+using ClashofClans.Files;
+using ClashofClans.Files.Logic;
+using ClashofClans.Logic.Manager;
+using ClashofClans.Utilities.Utils;
+
+namespace ClashofClans
+{
+    public static class Resources
+    {
+        public static Logger Logger { get; set; }
+        public static Configuration Configuration { get; set; }
+
+        public static PlayerDb PlayerDb { get; set; }
+
+        //public static AllianceDb AllianceDb { get; set; }
+        public static ObjectCache ObjectCache { get; set; }
+        public static Leaderboard Leaderboard { get; set; }
+
+        public static NettyService Netty { get; set; }
+
+        public static Fingerprint Fingerprint { get; set; }
+        public static Csv Csv { get; set; }
+        public static ClashofClans.Files.Logic.Levels Levels { get; set; }
+
+        public static LogicGlobalChatManager ChatManager { get; set; }
+
+        public static Players Players { get; set; }
+        //public static Alliances Alliances { get; set; }
+
+        public static DateTime StartTime { get; set; }
+
+        public static async void Initialize()
+        {
+            Logger = new Logger();
+            Logger.Log(
+                $"Starting [{DateTime.Now.ToLongTimeString()} - {ServerUtils.GetOsName()}]...",
+                null);
+
+            Configuration = new Configuration();
+            Configuration.Initialize();
+
+            Fingerprint = new Fingerprint();
+            Csv = new Csv();
+            Levels = new ClashofClans.Files.Logic.Levels();
+
+            PlayerDb = new PlayerDb();
+            //AllianceDb = new AllianceDb();
+
+            Logger.Log(
+                $"Successfully loaded MySql with {await PlayerDb.CountAsync()} player(s)",
+                null);
+
+            ObjectCache = new ObjectCache();
+
+            Players = new Players();
+            //Alliances = new Alliances();
+
+            Leaderboard = new Leaderboard();
+
+            StartTime = DateTime.UtcNow;
+
+            ChatManager = new LogicGlobalChatManager();
+
+            Netty = new NettyService();
+
+            await Task.Run(Netty.RunServerAsync);
+        }
+    }
+}

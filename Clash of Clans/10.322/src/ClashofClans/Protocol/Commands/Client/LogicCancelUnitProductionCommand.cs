@@ -1,0 +1,29 @@
+﻿using ClashofClans.Logic;
+using ClashofClans.Utilities.Netty;
+using DotNetty.Buffers;
+
+namespace ClashofClans.Protocol.Commands.Client
+{
+	class LogicCancelUnitProductionCommand : LogicCommand
+	{
+		public LogicCancelUnitProductionCommand(Device device, IByteBuffer buffer) : base(device, buffer)
+		{
+		}
+		private int UnitType { get; set; }
+		private int UnitId { get; set; }
+		private int Count { get; set; }
+		public override void Decode()
+		{
+			Reader.ReadInt();
+			UnitType = Reader.ReadInt();
+			UnitId = Reader.ReadInt();
+			Count = Reader.ReadInt();
+			Reader.ReadInt();
+			Reader.ReadInt();
+		}
+		public override void Process()
+		{
+			Device.Player.Home.Units.Remove(UnitType, UnitId, Count);
+		}
+	}
+}

@@ -1,0 +1,9 @@
+#Thu, 29 Jan 2015 16:48:52 +0200
+#build version number file
+
+version=20
+
+#do not edit this otherwise than change this to 0 when you update version or revision number
+build=45
+
+content_revision=1

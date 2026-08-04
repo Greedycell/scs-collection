@@ -1,0 +1,4 @@
+"Name","TID","InfoTID","SWF","ExportName","ModelName","TextureName","ShadowModelName","ShadowMeshName","ShadowTextureName","Width","Height","TimeBetweenTripsS"
+"String","String","String","String","String","String","String","String","String","String","int","int","int"
+"ResourceShip","TID_LIGHTNING_STORM","TID_LIGHTNING_STORM_INFO","sc/in-game.sc","empty3x3","model/cargo_ship.sbm","model/cargo_ship.pvr","model/boat_shadows.sbm:32","cargo_ship_shadow","model/boat_shadows.pvr",3,3,1800
+,,,,"reward_ship_tap","model/reward_ship.sbm","model/reward_ship.pvr","model/boat_shadows.sbm:32","reward_ship_shadow","model/boat_shadows.pvr",,,

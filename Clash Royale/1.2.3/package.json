@@ -1,0 +1,24 @@
+{
+  "name": "cr_1.2.3",
+  "version": "1.2.3",
+  "description": "A simple & lightweight private server for Clash Royale 1.2.3 (2016) written on Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "greedycell",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "net": "^1.0.2",
+    "simple-rc4": "^0.0.1-b"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0"
+  }
+}

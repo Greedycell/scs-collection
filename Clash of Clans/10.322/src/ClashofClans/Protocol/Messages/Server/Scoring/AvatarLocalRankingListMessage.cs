@@ -1,0 +1,30 @@
+﻿using System.Collections.Generic;
+
+using ClashofClans.Logic;
+
+namespace ClashofClans.Protocol.Messages.Server.Scoring
+{
+	public class AvatarLocalRankingListMessage : PiranhaMessage
+	{
+		public AvatarLocalRankingListMessage(Device device) : base(device)
+		{
+			Id = 21723;
+		}
+		private Player player { get; set; }
+		public override void Encode()
+		{
+			Resources.Leaderboard.Update(null, null);
+			List<Player> players = Resources.Leaderboard.LocalPlayerRanking[Device.Player.Home.PreferredDeviceLanguage];
+			int count = players.Count;
+
+			Writer.WriteInt(count);
+
+			for (int i = 0; i < count; i++)
+			{
+				player = players[i];
+
+				player.AvatarRankingEntry(Writer, i + 1);
+			}
+		}
+	}
+}

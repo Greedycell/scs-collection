@@ -1,0 +1,4 @@
+"Name","TID","InfoTID","RegionIndex","NodeIndex","LaunchDate","DurationDays","IntervalDays","NumLevels","C0","C1","C2","DummyNpc","CommonPieceInterval","RarePieceInterval","EpicPieceInterval"
+"String","String","String","int","int","String","int","int","int","int","int","int","String","int","int","int"
+"Event 1","TID_EVENT_1","TID_EVENT_1_INFO",23,0,"2013-12-4",1,7,20,150,20,35,"dummy_small_b",1,6,16
+"Event 2","TID_EVENT_2","TID_EVENT_2_INFO",33,1,"2013-12-21",1,7,20,600,50,40,"dummy_enemybase",1,4,12

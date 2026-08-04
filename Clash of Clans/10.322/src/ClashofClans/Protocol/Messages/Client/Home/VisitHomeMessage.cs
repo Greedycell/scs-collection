@@ -1,0 +1,30 @@
+﻿using ClashofClans.Logic;
+using ClashofClans.Protocol.Messages.Server;
+using ClashofClans.Utilities.Netty;
+using DotNetty.Buffers;
+
+namespace ClashofClans.Protocol.Messages.Client.Home
+{
+	public class VisitHomeMessage : PiranhaMessage
+	{
+		public VisitHomeMessage(Device device, IByteBuffer buffer) : base(device, buffer)
+		{
+			RequiredState = Device.State.NotDefinied;
+		}
+		public long HomeId { get; set; }
+		public override void Decode()
+		{
+			HomeId = Reader.ReadLong();
+			Reader.ReadInt();
+		}
+		public override async void Process()
+		{
+			Player player = await Resources.Players.GetPlayerAsync(HomeId, false);
+
+			await new VisitedHomeDataMessage(Device)
+			{
+				Player = player
+			}.SendAsync();
+		}
+	}
+}
