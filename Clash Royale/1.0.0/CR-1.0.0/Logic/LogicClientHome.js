@@ -21,7 +21,52 @@ class LogicClientHome {
     self.writeVInt(0) // SelectedDeck
     self.writeVInt(4) // ChestCount
     {
+      self.writeBoolean(false) // true = chests, false = no chests
+      
+      self.writeBoolean(true) // true = chests, false = no chests
+      self.writeDataReference(19, 36) // 1 = ChestId 
+      self.writeBoolean(false) // Unlocked
+      self.writeBoolean(false) // No Menu
+      self.writeBoolean(false) // Jump Animation
+      if (false) {
+        self.writeBoolean(true)
+        new LogicTimer().encode(self, 239940, 346065, Date.now() / 1000 | 0)
+      } else {
         self.writeBoolean(false)
+      }
+      self.writeVInt(0)
+      self.writeVInt(0)
+      self.writeVInt(0)
+
+      self.writeBoolean(true) // true = chests, false = no chests
+      self.writeDataReference(19, 36) // 1 = ChestId 
+      self.writeBoolean(false) // Unlocked
+      self.writeBoolean(false) // No Menu
+      self.writeBoolean(false) // Jump Animation
+      if (false) {
+        self.writeBoolean(true)
+        new LogicTimer().encode(self, 239940, 346065, Date.now() / 1000 | 0)
+      } else {
+        self.writeBoolean(false)
+      }
+      self.writeVInt(0)
+      self.writeVInt(0)
+      self.writeVInt(0)
+
+      self.writeBoolean(true) // true = chests, false = no chests
+      self.writeDataReference(19, 36) // 1 = ChestId 
+      self.writeBoolean(false) // Unlocked
+      self.writeBoolean(false) // No Menu
+      self.writeBoolean(false) // Jump Animation
+      if (false) {
+        self.writeBoolean(true)
+        new LogicTimer().encode(self, 239940, 346065, Date.now() / 1000 | 0)
+      } else {
+        self.writeBoolean(false)
+      }
+      self.writeVInt(0)
+      self.writeVInt(0)
+      self.writeVInt(0)
     }
     new LogicTimer().encode(self, 239940, 346065, Date.now() / 1000 | 0)
     new LogicTimer().encode(self, 239940, 346065, Date.now() / 1000 | 0)
